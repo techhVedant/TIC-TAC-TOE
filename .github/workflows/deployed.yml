@@ -58,7 +58,7 @@ jobs:
         run: trivy image techhforvedant21/tictacgame:latest > imageScanReport.txt
 
       - name: Deploy Image to container
-        run: docker run -d --name game -p 3000:3000 techhforvedant21/tictacgame:latest
+        run: docker run -d --name game1 -p 3000:3000 techhforvedant21/tictacgame:latest
 
       - name: Update Kubeconfig
         run: aws eks --region ap-south-1 update-kubeconfig --name EKS_CLOUD
