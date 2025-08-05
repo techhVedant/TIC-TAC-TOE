@@ -59,5 +59,9 @@ jobs:
 
       - name: Deploy Image to container
         run: docker run -d --name game -p 3000:3000 techhforvedant21/tictacgame:latest
-      
 
+      - name: Update Kubeconfig
+        run: aws eks --region ap-south-1 update-kubeconfig --name EKS_CLOUD
+
+      - name: Deploy to EKS Cluster
+        run: kubectl apply -f deployment-service.yml
