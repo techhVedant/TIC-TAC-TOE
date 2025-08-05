@@ -46,4 +46,18 @@ jobs:
           push: true
           tags: techhforvedant21/tictacgame:latest
 
+  Deploy:
+    needs: build
+    runs-on: [self-hosted]
+
+    steps:
+      - name: Pull Docker image
+        run: docker pull techhforvedant21/tictacgame:latest
+
+      - name: Image scan before deploying to container
+        run: trivy image techhforvedant21/tictacgame:latest > imageScanReport.txt
+
+      - name: Deploy Image to container
+        run: docker run -d --name game -p 3000:3000 techhforvedant21/tictacgame:latest
+      
 
