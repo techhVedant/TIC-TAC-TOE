@@ -44,6 +44,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: techhforvedant21/TicTacGame:latest
+          tags: techhforvedant21/tictacgame:latest
 
 
